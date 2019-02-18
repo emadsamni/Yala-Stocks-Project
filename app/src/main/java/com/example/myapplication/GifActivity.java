@@ -9,7 +9,7 @@ import pl.droidsonroids.gif.GifImageView;
 
 
 public class GifActivity extends AppCompatActivity {
-    private static int TIME_OUT = 3500;
+    private static int TIME_OUT = 3300;
     GifImageView gifImageView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
