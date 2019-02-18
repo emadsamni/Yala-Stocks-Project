@@ -65,7 +65,8 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_margin="5dp"
-                        android:textColor="@color/white"/>
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/pricetextsize"/>
 
                     <ImageView
                         android:id="@+id/sellchange"
@@ -81,7 +82,8 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_margin="5dp"
-                        android:textColor="@color/white"/>
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/pricetextsize"/>
 
                 </LinearLayout>
                 <LinearLayout
@@ -109,6 +111,8 @@
                         android:layout_gravity="center"
                         android:layout_margin="5dp"
                         android:textColor="@color/white"
+                        android:textSize="@dimen/pricetextsize"
+
                         />
 
                     <ImageView
@@ -127,7 +131,8 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_margin="5dp"
-                        android:textColor="#FFFF"/>
+                        android:textColor="#FFFF"
+                        android:textSize="@dimen/pricetextsize"/>
                 </LinearLayout>
             </LinearLayout>
 
