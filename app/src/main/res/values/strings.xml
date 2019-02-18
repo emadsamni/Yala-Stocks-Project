@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">"Yala Stocks "</string>
+    <string name="title_home">Coins prices</string>
+    <string name="title_dashboard">Gold prices </string>
+    <string name="title_notifications">Notifications</string>
+    <string name="internet_error" >Please Check Your Internet and Try Again</string>
+    <string name="unexpected_api_error" >unexpected_api_error</string>
+    <string name="Sell">Sell</string>
+    <string name="Buy">Buy</string>
+</resources>
