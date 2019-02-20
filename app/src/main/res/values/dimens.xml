@@ -6,5 +6,5 @@
     <dimen name="image_width">30pt</dimen>
     <dimen name="coin_name_size">10pt</dimen>
     <dimen name="buyselltextsize">8pt</dimen>
-    <dimen name="pricetextsize">6pt</dimen>
+    <dimen name="pricetextsize">7pt</dimen>
 </resources>

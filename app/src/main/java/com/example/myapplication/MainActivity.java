@@ -1,20 +1,22 @@
 package com.example.myapplication;
 
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
 import android.support.design.widget.BottomNavigationView;
-import android.support.v7.app.ActionBar;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.example.myapplication.Fragments.CoinFragment;
+import com.example.myapplication.Fragments.GoldFragment;
+import com.example.myapplication.Fragments.TransferFragment;
 import com.example.myapplication.adapters.Coinadapter;
 import com.example.myapplication.adapters.Goldadapter;
 import com.example.myapplication.apiClasses.Api;
@@ -30,36 +32,16 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainActivity extends AppCompatActivity {
-
+public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
     private TextView mTextMessage;
     private  RecyclerView myRecyclerView;
     private Coinadapter mAdapter;
     private Goldadapter mAdapter2;
-    private ArrayList<Coin> coinList;
-    private  ArrayList<gold> goldList;
+    public ArrayList<Coin> coinList;
+    public   ArrayList<gold> goldList;
     ProgressDialog progressDialog;
     TextView textView;
     Toolbar toolbar ;
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener() {
-
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            switch (item.getItemId()) {
-
-                case R.id.navigation_home:
-                    showCoins();
-                    return true;
-                case R.id.navigation_dashboard:
-                    showGold();
-                    return true;
-
-            }
-            return false;
-        }
-    };
-
 
 
     @Override
@@ -67,40 +49,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-
-
-
-
         progressDialog =ProgressDialog.getInstance();
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        myRecyclerView =(RecyclerView)this.findViewById(R.id.coinrec);
+        navigation.setOnNavigationItemSelectedListener(this);
         coinList= new ArrayList<Coin>();
         goldList=new ArrayList<gold>();
-        mAdapter =new Coinadapter(coinList,MainActivity.this);
-        mAdapter2 =new Goldadapter(goldList,MainActivity.this);
-        myRecyclerView.setAdapter(mAdapter);
-        LinearLayoutManager layoutManager =new LinearLayoutManager( MainActivity.this);
-        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        myRecyclerView.setLayoutManager(layoutManager);
         progressDialog.show(this);
         getData();
-    }
-
-    public  void showCoins()
-    {
-       myRecyclerView.setAdapter(mAdapter);
-       LinearLayoutManager layoutManager =new LinearLayoutManager( MainActivity.this);
-       layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-       myRecyclerView.setLayoutManager(layoutManager);
-    }
-
-    public  void showGold()
-    {
-        myRecyclerView.setAdapter(mAdapter2);
-        LinearLayoutManager layoutManager =new LinearLayoutManager( MainActivity.this);
-        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        myRecyclerView.setLayoutManager(layoutManager);
     }
    private void getData() {
         Api apiService = ApiClient.getClient().create(Api.class);
@@ -137,12 +92,50 @@ public class MainActivity extends AppCompatActivity {
                     goldList.add(temp.get(i));
                 }
                 progressDialog.cancel();
-                showCoins();
+
+                CoinFragment fragment = new CoinFragment();
+                loadfragment(fragment);
             }
             @Override
             public void onFailure(Call<ApiResponse<List<gold>>> call, Throwable t) {
                 Toast.makeText(MainActivity.this, "Please Check Your Internet", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    public List<gold> getGoldList() {  return  goldList;
+    }
+
+    public List<Coin> getCoinList() { return  coinList;
+    }
+    private  boolean loadfragment(Fragment fragment)
+    {
+        if (fragment  != null )
+        {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fargment_container,fragment).commit();
+                 return true;
+        }
+        return false;
+    }
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        Fragment fragment= null;
+        switch (menuItem.getItemId())
+        {
+            case R.id.navigation_coins:
+                fragment = new CoinFragment();
+
+                break;
+            case R.id.navigation_gold:
+                fragment = new GoldFragment();
+
+                break;
+            case R.id.navigation_tranfer:
+                fragment = new TransferFragment();
+                break;
+        }
+        return loadfragment(fragment);
     }
 }

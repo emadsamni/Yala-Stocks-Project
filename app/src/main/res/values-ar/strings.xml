@@ -2,8 +2,9 @@
 <resources>
 
     <string name="app_name">"Yala Stocks "</string>
-    <string name="title_home">أسعار العملات </string>
-    <string name="title_dashboard">أسعار الذهب  </string>
+    <string name="title_coin">أسعار العملات </string>
+    <string name="title_gold">أسعار الذهب  </string>
+    <string name="title_tranfer">تحويل عملة </string>
     <string name="title_notifications">إشعارات</string>
     <string name="internet_error" >الرجاء التحقق من الانترنت و المحاولة مجددا</string>
     <string name="unexpected_api_error" >خطا غير متوقع </string>

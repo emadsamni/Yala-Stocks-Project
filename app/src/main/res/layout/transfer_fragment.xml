@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_margin="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        >
+<RadioGroup
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:id="@+id/radiogroup">
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="100dp"
+        android:text="@string/Buy"
+        android:textColor="@color/white"
+         app:buttonTint="@color/colorPrimary"
+        android:id="@+id/buyradio"
+
+        />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Sell"
+            android:textColor="@color/white"
+            app:buttonTint="@color/colorPrimary"
+            android:id="@+id/sellradio"
+           />
+</RadioGroup>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_margin="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:orientation="horizontal" android:layout_gravity="center">
+        <EditText
+            android:inputType="numberDecimal"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            app:backgroundTint="@color/colorPrimary"
+            android:textColor="@color/white"
+            android:layout_marginStart="20dp"
+            android:id="@+id/fromedtxt"
+
+            android:textColorHint="@color/white"
+
+            />
+
+        <Spinner
+            android:id="@+id/fromspid"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            app:backgroundTint="@color/colorPrimary">
+
+        </Spinner>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content" android:layout_margin="20dp"
+        android:layout_height="wrap_content" android:orientation="horizontal" android:layout_gravity="center">
+        <TextView
+
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:hint="To"
+            android:textSize="@dimen/coin_name_size"
+            android:textColorHint="@color/white"
+            app:backgroundTint="@color/colorPrimary"
+            android:textColor="@color/white"
+            android:layout_marginStart="20dp"
+            android:id="@+id/toedtxt"/>
+        <Spinner
+            android:id="@+id/tospid"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            app:backgroundTint="@color/colorPrimary">
+
+        </Spinner>
+    </LinearLayout>
+
+</LinearLayout>
