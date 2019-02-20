@@ -4,11 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
+
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:orientation="horizontal">
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -20,8 +22,7 @@
                 android:layout_width="@dimen/image_width"
                 android:layout_height="@dimen/image_high"
                 android:layout_gravity="center"
-                android:layout_margin="5dp"
-                 />
+                android:layout_margin="5dp" />
         </LinearLayout>
 
         <LinearLayout
@@ -30,13 +31,14 @@
             android:layout_gravity="start"
             android:layout_marginStart="10dp"
             android:orientation="vertical">
+
             <TextView
                 android:id="@+id/coin_name"
                 android:layout_width="wrap_content"
-                android:textStyle="bold"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorPrimary"
-                android:textSize="@dimen/coin_name_size" />
+                android:textSize="@dimen/coin_name_size"
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -59,6 +61,7 @@
                         android:textSize="@dimen/buyselltextsize"
 
                         />
+
                     <TextView
                         android:id="@+id/new_coin_sell"
                         android:layout_width="wrap_content"
@@ -66,7 +69,7 @@
                         android:layout_gravity="center"
                         android:layout_margin="5dp"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/pricetextsize"/>
+                        android:textSize="@dimen/pricetextsize" />
 
                     <ImageView
                         android:id="@+id/sellchange"
@@ -76,6 +79,7 @@
                         android:layout_margin="5dp"
 
                         />
+
                     <TextView
                         android:id="@+id/old_coin_sell"
                         android:layout_width="wrap_content"
@@ -83,9 +87,10 @@
                         android:layout_gravity="center"
                         android:layout_margin="5dp"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/pricetextsize"/>
+                        android:textSize="@dimen/pricetextsize" />
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -97,9 +102,9 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_margin="5dp"
-                        android:textSize="@dimen/buyselltextsize"
                         android:text="@string/Buy"
                         android:textColor="@color/colorSecondary"
+                        android:textSize="@dimen/buyselltextsize"
 
 
                         />
@@ -132,7 +137,7 @@
                         android:layout_gravity="center"
                         android:layout_margin="5dp"
                         android:textColor="#FFFF"
-                        android:textSize="@dimen/pricetextsize"/>
+                        android:textSize="@dimen/pricetextsize" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -146,8 +151,8 @@
         android:id="@+id/divider"
         android:layout_width="match_parent"
         android:layout_height="0.1dp"
-        android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
+        android:layout_marginStart="30dp"
         android:layout_weight="1"
         android:background="@color/white" />
 </LinearLayout>

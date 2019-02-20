@@ -6,9 +6,8 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
     android:background="#030023"
-    >
+    tools:context=".MainActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -36,26 +35,25 @@
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="15dp"
                 android:text="@string/app_name"
+                android:textColor="#ffffff"
                 android:textSize="@dimen/coin_name_size" />
         </LinearLayout>
 
     </android.support.v7.widget.Toolbar>
+
     <FrameLayout
+        android:id="@+id/fargment_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:id="@+id/fargment_container"
         android:layout_marginBottom="8dp"
         android:background="#030023"
         app:layout_constraintBottom_toTopOf="@+id/navigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        >
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
     </FrameLayout>
-
 
 
     <android.support.design.widget.BottomNavigationView

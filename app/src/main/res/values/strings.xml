@@ -1,11 +1,13 @@
 <resources>
-    <string name="app_name">"Yala Stocks "</string>
+    <string name="app_name">"SP Stocks"</string>
     <string name="title_coin">Coins prices</string>
     <string name="title_gold">Gold prices </string>
     <string name="title_tranfer">coins transfer </string>
     <string name="title_notifications">Notifications</string>
     <string name="internet_error">Please Check Your Internet and Try Again</string>
-    <string name="unexpected_api_error">unexpected_api_error</string>
+    <string name="unexpected_api_error">Unexpected error, please try again later.</string>
     <string name="Sell">Sell</string>
     <string name="Buy">Buy</string>
+    <string name="from">from</string>
+    <string name="to">To</string>
 </resources>

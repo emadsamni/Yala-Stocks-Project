@@ -7,4 +7,9 @@
     <dimen name="coin_name_size">10pt</dimen>
     <dimen name="buyselltextsize">8pt</dimen>
     <dimen name="pricetextsize">7pt</dimen>
+
+
+    <dimen name="dropdownListPreferredItemHeight">45dip</dimen>
+
+
 </resources>
