@@ -10,4 +10,10 @@
     <string name="Buy">Buy</string>
     <string name="from">from</string>
     <string name="to">To</string>
+
+
+    <string name="facebook_app_id">2199453887038296</string>
+    <string name="fb_login_protocol_scheme">fb2199453887038296</string>
+
+
 </resources>

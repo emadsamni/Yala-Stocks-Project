@@ -81,7 +81,7 @@ public class Coinadapter extends RecyclerView.Adapter<Coinadapter.MyViewHolder>{
 
         }
 
-        String path= "https://api2.yala-shop.com/public/image/"+ current.getImage();
+        String path= "https://api.spstocks.com/image/"+ current.getImage();
         path = path.replaceAll("\\\\", "/");
         Picasso.with(context).load(path).into(myViewHolder.coinIcon);
     }

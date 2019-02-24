@@ -1,5 +1,6 @@
 package com.mg.spstocks.fragments;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -18,14 +19,32 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
+import com.facebook.login.LoginManager;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
 import com.mg.spstocks.MainActivity;
 import com.mg.spstocks.R;
+import com.mg.spstocks.api.classes.Api;
+import com.mg.spstocks.api.classes.ApiClient;
+import com.mg.spstocks.api.classes.ApiResponse;
 import com.mg.spstocks.models.Coin;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
+
+import retrofit2.Call;
+import retrofit2.Response;
 
 public class TransferFragment  extends Fragment {
     Spinner fromSpinner , toSpinner;
@@ -51,6 +70,9 @@ public class TransferFragment  extends Fragment {
         editText= view.findViewById(R.id.fromedtxt);
         toTxt=view.findViewById(R.id.toedtxt);
         radioButton1.setChecked(true);
+
+        initFacebookLogin(view);
+
         fromtolist.add("الليرة السورية");
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -211,5 +233,41 @@ public class TransferFragment  extends Fragment {
         long tmp = Math.round(value);
         return (double) tmp / factor;
     }
+
+    private LoginButton loginButton;
+    private CallbackManager callbackManager;
+    private void initFacebookLogin(View container) {
+        LoginManager.getInstance().logOut();
+
+        loginButton = container.findViewById(R.id.login_button);
+        loginButton.setReadPermissions(Arrays.asList("public_profile", "email"));
+        loginButton.setFragment(this);
+
+        callbackManager = CallbackManager.Factory.create();
+
+        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+            }
+            @Override
+            public void onCancel() {
+            }
+            @Override
+            public void onError(FacebookException exception) {
+            }
+        });
+    }
+
+
+
+
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        callbackManager.onActivityResult(requestCode, resultCode, data);
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+
 
 }
